@@ -1,0 +1,40 @@
+<header class='top-page-header'>
+  <div class='nav'>
+    <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </ul>
+</header>
+  
+  <%= form_with model: @plan, url: plans_path, class: 'form' do |f| %>
+    <%= f.label :日付を選択, class: 'lavel' %>
+    <%= f.date_field :date, class: 'date-select' %>
+    <%= f.label :予定を入力, class: 'lavel' %>
+    <%= f.text_field :plan, class: 'text-input' %>
+    <%= f.submit '保存' %>
+  <% end %>
+
+
+
+  <div class='calendar'>
+    <% @week_days.each do |day| %>
+      <div class='item'>
+        <div class='date'>
+          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+        </div>
+        <ul class='content'>
+        <% if day[:plans].length != 0 %>
+          <% day[:plans].each do |plan| %>
+            <li class='plan-list'><%= plan %></li>
+          <% end %>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>

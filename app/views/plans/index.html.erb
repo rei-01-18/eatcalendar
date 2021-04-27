@@ -2,11 +2,11 @@
   <div class='nav'>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to current_user.nickname, '/users/#{current_user.id}', class: 'user-nickname' %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
       <% end %>
     </ul>
   </ul>
@@ -17,6 +17,8 @@
     <%= f.date_field :date, class: 'date-select' %>
     <%= f.label :予定を入力, class: 'lavel' %>
     <%= f.text_field :plan, class: 'text-input' %>
+    <%= f.label :時間帯を入力, class: 'lavel' %>
+    <%= f.collection_select(:meal_id, Meal.all, :id, :name, {}, {class:'meal-select', id:'meal'}) %>
     <%= f.submit '保存' %>
   <% end %>
 
@@ -28,12 +30,17 @@
         <div class='date'>
           <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
         </div>
-        <ul class='content'>
-        <% if day[:plans].length != 0 %>
-          <% day[:plans].each do |plan| %>
-            <li class='plan-list'><%= plan %></li>
-          <% end %>
-        <% end %>
+        <ul class='contents'>
+          <ul class='meal_content'>
+            <% day[:meals].each do |meal| %>
+              <li class='meal-list'>・<%= meal %> </li>
+            <% end %>
+          </ul>
+          <ul class='plan_content'>
+            <% day[:plans].each do |plan| %>
+              <li class='plan-list'><%= plan %> </li>
+            <% end %>
+          </ul>
         </ul>
       </div>
     <% end %>

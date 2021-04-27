@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_074136) do
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "plan", null: false
     t.date "date", null: false
+    t.integer "meal_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

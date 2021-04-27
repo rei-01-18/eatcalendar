@@ -3,8 +3,10 @@
   <% @plans.each do |plan| %>
     <div class="content_post">
       <p><%= plan.date %></p>
-      <p><%= plan.plan %></p>
+      <p><%= plan.meal.name %> <%= plan.plan %></p>
     </div>
+    <%= link_to '編集', edit_plan_path(plan.id), method: :get %>
+    
     <%= link_to '削除', plan_path(plan.id), method: :delete %>
   <% end %>
 </div>

@@ -1,8 +1,11 @@
 class Plan < ApplicationRecord
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+  belongs_to :meal
 
-  
-  validates :plan, presence: true
-  validates :date, presence: true
+  with_options presence: true do
+    validates :plan
+    validates :date
+  end
+  validates :meal_id, numericality: { other_than: 1 } 
 end

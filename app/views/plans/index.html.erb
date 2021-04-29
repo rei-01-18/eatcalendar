@@ -1,8 +1,17 @@
-<header class='top-page-header'>
+<header class='top-header' >
+  <div page-header>
+    <div class='header-title'>
+      <h1 class='page-title'>FOOD RECORD</h1>
+      <P id='p1'>
+      朝・昼・夜の食事メニューを入力し自分の食生活を見直してみよう！
+      マイページから基礎代謝・必要な栄養素を確認！！
+      </p>
+    </div>
+  </div>
   <div class='nav'>
-    <ul class='lists-right'>
+    <ul class='header-lists'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, '/users/#{current_user.id}', class: 'user-nickname' %></li>
+        <li><%= link_to current_user.nickname, user_path(current_user.id), class: 'user-nickname' %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
@@ -11,18 +20,17 @@
     </ul>
   </ul>
 </header>
-  
+
+<body>
   <%= form_with model: @plan, url: plans_path, class: 'form' do |f| %>
     <%= f.label :日付を選択, class: 'lavel' %>
     <%= f.date_field :date, class: 'date-select' %>
-    <%= f.label :予定を入力, class: 'lavel' %>
+    <%= f.label :メニューを入力, class: 'lavel' %>
     <%= f.text_field :plan, class: 'text-input' %>
     <%= f.label :時間帯を入力, class: 'lavel' %>
     <%= f.collection_select(:meal_id, Meal.all, :id, :name, {}, {class:'meal-select', id:'meal'}) %>
     <%= f.submit '保存' %>
   <% end %>
-
-
 
   <div class='calendar'>
     <% @week_days.each do |day| %>
@@ -45,5 +53,11 @@
       </div>
     <% end %>
   </div>
+</body>
 
+<footer>
+  <div class='wrapper'>
+    <P><small>&copy; 2021 96th team D</small></p>
+  </div>
+</footer>
 

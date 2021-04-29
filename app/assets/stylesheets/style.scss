@@ -1,0 +1,198 @@
+// Place all the styles related to the calendars controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top-header {
+  height: 60vh;
+  width: 100vw;
+  background-image: url(header-top.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+
+.header-title{
+  text-align: center;
+  max-width: 100%;
+}
+
+.page-title {
+  font-size: 4.15rem;
+  padding: 60px;
+  margin: 30px;
+  font-family: serif;
+  color: white;
+  text-shadow:
+    2px  2px 2px rgba(0, 0, 0, 0.88);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#p1 {
+  color: white;
+  font-family: serif;
+  letter-spacing: 2px;
+  font-size: 17px;
+  text-shadow:
+    2px  2px 2px rgba(0, 0, 0, 0.88);
+}
+
+.nav {
+  margin: 15px;
+  padding: 50px;
+  font-size: 23px;
+  text-transform: uppercase;
+}
+
+.header-lists {
+  margin: 50px ;
+}
+
+.user-nickname{
+  text-decoration: none;
+  font-family: serif;
+  color: #69493c;
+  letter-spacing: 2px;
+}
+
+.logout {
+  text-decoration: none;
+  font-family: serif;
+  color: #69493c;
+  letter-spacing: 2px;
+}
+
+.login {
+  text-decoration: none;
+  font-family: serif;
+  color: #69493c;
+  letter-spacing: 2px;
+}
+
+.sign-up{
+  text-decoration: none;
+  font-family: serif;
+  color: #69493c;
+  letter-spacing: 2px;
+}
+
+
+body {
+  background-color: #fff7fe;
+  overflow-y: scroll;
+}
+
+.calendar {
+  width: 100vw;
+  margin: 15vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-family: serif;
+}
+
+
+
+.item {
+  margin: 0.5vw;
+  border: medium solid ;
+  border-style: outset;
+  width: 12vw;
+  height: auto;
+  background-color: #f7feff;
+}
+
+.date {
+  height: 5vh;
+  display: flex;
+  font-size: 3vh;
+  align-items: center;
+  justify-content: center;
+  border-bottom: medium solid #bfb8be;
+}
+
+.contents {
+  display: flex;
+  min-height: 25vh;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: scroll;
+  text-align: center;
+  color: #69493c;
+  font-size: 19px;
+}
+
+.meal_content {
+  margin: 1vh 0;
+}
+
+.plan_content {
+  margin: 1vh 2vh;
+  letter-spacing: 2px;
+}
+
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
+}
+
+.lavel {
+  font-size: 3vh;
+  color: #69493c;
+  font-family: serif;
+}
+
+.text-input {
+  height: 4vh;
+  width: 15vw;
+  margin: 0 2vw;
+  font-family: serif;
+  text-align: center;
+  font-size: 17px;
+}
+
+.date-select {
+  height: 4vh;
+  width: 13vw;
+  margin: 0 2vw;
+  font-family: serif;
+  text-align: center;
+  font-size: 15px;
+}
+
+.meal-select {
+  height: 4vh;
+  width: 13vw;
+  margin: 0 2vw;
+  font-family: serif;
+  text-indent: 50%;
+  font-size: 15px;
+}
+
+.date {
+  color: #69493c;
+}
+
+.meal-list {
+  color: #69493c;
+}
+
+.plan_list {
+  color: #69493c;
+}
+
+footer {
+  background: #432;
+  text-align: center;
+  padding: 26px 0;
+}
+
+.wrapper {
+  color: #fff;
+  font-size: 0.8rem;
+}
+

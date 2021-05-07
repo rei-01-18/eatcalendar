@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'plans#index'
   resources :plans do
     collection do
-      get 'menmacro'
-      get 'wmacro'
+      get 'men'
+      get 'women'
     end
   end
   resources :users, only: :show

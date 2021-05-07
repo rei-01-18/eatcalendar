@@ -20,6 +20,13 @@ class PlansController < ApplicationController
   end
 
 
+  def men
+  end
+
+  def women
+  end
+
+
   private
 
   def plan_params

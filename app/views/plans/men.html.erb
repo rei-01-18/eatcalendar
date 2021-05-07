@@ -1,0 +1,44 @@
+<header>
+  <div class='topheader'>
+    <%= link_to 'トップページへ', root_path %>
+  </div>
+  <div class='mypage'>
+    <%= link_to 'マイページへ', user_path(current_user.id) %>
+  </div>
+</header>
+
+<body>
+
+  <div class=bmi>
+    身長<input type='text' id='height' ><br><br>
+    体重<input type='text' id='weight' ><br><br>
+    <button type='botton' onclick="bmi()">
+    <h2 class='text-input'>BMI=<b id='bmi_index'></b></h2>
+  </div>
+
+  <div class=calorie>
+    年齢<input type='text' id='age' ><br><br>
+    <button type='botton' onclick="calorie()">
+    <h3 class='text-input'>CALORIE=<b id='calorie_index'></b></h3>
+  </div>
+
+ <script>
+ function bmi() {
+   const height = parseFloat(document.getElementById('height').value)
+   const weight = parseFloat(document.getElementById('weight').value)
+   const h = height / 100
+   const bmi = weight/h/h;
+   const userBMI = document.getElementById('bmi_index')
+   userBMI.textContent = bmi.toFixed(2);
+ };
+
+ function calorie() {
+   const height = parseFloat(document.getElementById('height').value)
+   const weight = parseFloat(document.getElementById('weight').value)
+   const age = parseFloat(document.getElementById('age').value)
+   const calorie = 10 * weight + 6.25 * height - 5 * age + 5;
+   const userCALORIE = document.getElementById('calorie_index')
+   userCALORIE.textContent = calorie.toFixed(2);
+ };
+ </script>
+</body>

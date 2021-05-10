@@ -1,3 +1,9 @@
+<header>
+  <div class='topheader'>
+    <%= link_to 'トップページへ', root_path %>
+  </div>
+</header>
+
 <div class="contents row">
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @plans.each do |plan| %>
@@ -9,6 +15,12 @@
     
     <%= link_to '削除', plan_path(plan.id), method: :delete %>
   <% end %>
+  <div class='menpage'>
+    <%= link_to '男性', men_plans_path, method: :get %>
+  </div>
+  <div class='women'>
+    <%= link_to '女性', women_plans_path, method: :get %>
+  </div>
 </div>
 
 

@@ -196,3 +196,36 @@ footer {
   font-size: 0.8rem;
 }
 
+.contents_row {
+  margin: 80px auto;
+  min-height: 35rem;
+  max-width: 50%;
+  border: 1px solid black;
+}
+
+.container {
+  position: relative;
+  background-color: white;
+  height: 35rem;
+}
+
+.container h2 {
+  text-align: center;
+  margin: auto;
+  padding: 30px;
+  font-size: 4vh;
+  font-family: serif;
+  letter-spacing: 3px;
+}
+
+.flash-message {
+  text-align: center; 
+  font-size: 18px;
+  font-family: serif;
+}
+
+.field {
+ text-align: center;
+ margin: 40px;
+}
+

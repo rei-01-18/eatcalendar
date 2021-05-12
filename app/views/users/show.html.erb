@@ -18,7 +18,7 @@
           <%= button_to 'いいね', plan_likes_path(plan) %>
         <% end %>
     </div>
-    <%= link_to '編集', edit_plan_path(plan.id), method: :get %>
+    <%= link_to '編集', edit_plan_path(plan), method: :get %>
     <%= link_to '削除', plan_path(plan.id), method: :delete %>
   <% end %>
   <div class='menpage'>

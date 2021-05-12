@@ -17,7 +17,10 @@ class PlansController < ApplicationController
   end
 
   def edit
-    if @plan.save
+  end
+
+  def update
+    if @plan.update(plan_params)
       redirect_to user_path(current_user.id)
     else
       render :edit

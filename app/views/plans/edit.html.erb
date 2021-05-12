@@ -1,14 +1,14 @@
 <div class="contents edit">
   <div class="plan_edit">
     <h3>編集する</h3>
-    <%= form_with model: @plan, url: plans_path, class: 'form' do |f| %>
+    <%= form_with model: @plan, url: plan_path, class: 'form' do |f| %>
       <%= f.label :日付を選択, class: 'lavel' %>
       <%= f.date_field :date, class: 'date-select' %>
       <%= f.label :メニューを入力, class: 'lavel' %>
       <%= f.text_field :plan, class: 'text-input' , placeholder:'例 目玉焼き' %>
       <%= f.label :時間帯を入力, class: 'lavel' %>
       <%= f.collection_select(:meal_id, Meal.all, :id, :name, {}, {class:'meal-select', id:'meal'}) %>
-      <%= f.submit '保存' %>
+      <%= f.submit '更新' %>
     <% end %>
   </div>
 </div>

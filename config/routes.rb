@@ -8,5 +8,5 @@ Rails.application.routes.draw do
       get 'women'
     end
   end
-  resources :users, only: :show, :edit
+  resources :users, only: :show
 end

@@ -5,5 +5,4 @@ class UsersController < ApplicationController
     @plan = Plan.find_by(params[:plan_id])
     @like = Like.new
   end
-
 end

@@ -197,35 +197,55 @@ footer {
 }
 
 .contents_row {
-  margin: 80px auto;
-  min-height: 35rem;
-  max-width: 50%;
-  border: 1px solid black;
-}
-
-.container {
-  position: relative;
-  background-color: white;
-  height: 35rem;
-}
-
-.container h2 {
-  text-align: center;
-  margin: auto;
-  padding: 30px;
-  font-size: 4vh;
-  font-family: serif;
-  letter-spacing: 3px;
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
 }
 
 .flash-message {
   text-align: center; 
   font-size: 18px;
   font-family: serif;
+  margin: 20px 20px 0 20px;
+}
+
+.contents_row h2 {
+  text-align: center;
+  font-size: 35px;
+  font-family: serif;
+  text-transform: uppercase;
+  color: #69493c;
+}
+
+.new_user {
+  text-align: center;
+  margin: 20px;
+  padding: 14px 10px;
 }
 
 .field {
- text-align: center;
- margin: 40px;
+  margin: 20px auto;
+  padding: 14px 10px;
+  width: 200px;
 }
+
+#f_text {
+  width: 200px;
+  height: 1.5rem;
+  text-align: center;
+  outline: none;
+  transition: 0.25s;
+}
+
+
+#log_btn {
+  width: 55px;
+  color: green;
+  transition: 0.25s;
+}
+
 

@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_plan, only: [:edit, :update, :destroy]
 
   def index
     get_week
@@ -17,15 +17,18 @@ class PlansController < ApplicationController
   end
 
   def edit
+    if @plan.save
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
   end
-
 
   def men
   end
 
   def women
   end
-
 
   private
 
@@ -51,7 +54,6 @@ class PlansController < ApplicationController
         today_meals.push(plan.meal.name) if plan.date == @todays_date + x
       end
 
-      
 
       wday_num = Date.today.wday + x
   
@@ -62,9 +64,9 @@ class PlansController < ApplicationController
       days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, meals: today_meals, wday: wdays[wday_num] }
       @week_days.push(days)
     end
+  end
 
-    def set_plan
-      @plan = Plan.find(params[:id])
-    end
+  def set_plan
+    @plan = Plan.find(params[:id])
   end
 end

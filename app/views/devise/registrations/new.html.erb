@@ -1,38 +1,40 @@
-<div class='topheader'>
-    <%= link_to 'トップページへ', root_path %>
+<div class='top_header'>
+  <%= link_to 'トップページへ', root_path, id:'top_page' %>
 </div>
-<div class="contents row">
-  <div class="container">
-    <h2>新規登録</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
-      </div>
-
-      <div class="field">
-        <%= f.label :名前 %><br />
-        <%= f.text_field :nickname %>
-      </div>
-
-      <div class="field">
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
-          <em>(<% @minimum_password_length %> 6文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :確認用パスワード %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+<div class="contents_row">
+  <h2>新規登録</h2>
+  <div class='flash-message'>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
   </div>
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' local: true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="field">
+      <%= f.email_field :email, id:'f_text', autofocus: true, placeholder:'メールアドレス' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :名前 %><br />
+      <%= f.text_field :nickname %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :nickname, id:'f_text', autofocus: true, placeholder:'ニックネーム' %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, id:'f_text', autocomplete: "off", placeholder:'パスワード' %>
+      <% if @minimum_password_length %>
+        <em>(<% @minimum_password_length %> 6文字以上)</em>
+      <% end %><br />
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, id:'f_text', autocomplete: "off", placeholder:'確認用パスワード' %>
+    </div>
+
+    <div class="actions_btn">
+      <%= f.submit "Sign up", id:'log_btn' %>
+    </div>
+  <% end %>
 </div>

@@ -1,26 +1,29 @@
-<header>
-  <div class='topheader'>
-    <%= link_to 'トップページへ', root_path %>
+<header class='userheader'>
+  <div class='my_page'>
+    <%= link_to 'トップページへ', root_path, id:'top_page' %>
   </div>
-  <div class='mypage'>
-    <%= link_to 'マイページへ', user_path(current_user.id) %>
+  <div class='nav'>
+    <li><%= link_to 'マイページへ', user_path(current_user.id), id:'top_page' %></li>
   </div>
 </header>
 
 <body>
-
-  <div class=bmi>
-    身長<input type='text' id='height' ><br><br>
-    体重<input type='text' id='weight' ><br><br>
-    <button type='botton' onclick="bmi()">
+  <div class=bmi >
+    <p class='caliculation'>身長</p>
+    <input type='text' id='height' class="field"><br><br>
+    <p class='caliculation'>体重</p>
+    <input type='text' id='weight' class="field"><br><br>
+    <button type='botton' id='btn' onclick="bmi()">
     <h2 class='text-input'>BMI=<b id='bmi_index'></b></h2>
   </div>
 
   <div class=calorie>
-    年齢<input type='text' id='age' ><br><br>
-    <button type='botton' onclick="calorie()">
-    <h3 class='text-input'>CALORIE=<b id='calorie_index'></b></h3>
+    <p class='caliculation'>年齢</p>
+    <input type='text' id='age' class="field"><br><br>
+    <button type='botton' id='btn' onclick="calorie()">
+    <h3 class='text-input'>基礎代謝=<b id='calorie_index'></b></h3>
   </div>
+
 
  <script>
  function bmi() {

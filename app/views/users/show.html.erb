@@ -1,32 +1,37 @@
-<header>
-  <div class='topheader'>
-    <%= link_to 'トップページへ', root_path %>
+<header class='userheader'>
+  <div class='top_page'>
+    <%= link_to 'トップページへ', root_path, id:'top_page' %>
+  </div>
+  <div class='nav'>
+    <li class='men'>
+      <%= link_to '基礎代謝計算（男性）', men_plans_path, id:'pagecahnge', method: :get %>
+    </li>
+    <li class='women'>
+      <%= link_to '基礎代謝計算（女性）', women_plans_path, id:'pagecahnge', method: :get %>
+    </li>
   </div>
 </header>
 
-<div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
+<div class='user_contents'>
+  <p id='nickname'><%= @nickname %>さんの投稿一覧</p>
   <% @plans.each do |plan| %>
-    <div class="content_post">
+    <div class='content_post'>
       <p><%= plan.date %></p>
       <p><%= plan.meal.name %> <%= plan.plan %></p>
       <p>いいね件数: <%= plan.likes.count %></p>
-      <p>
+      <h3 id='like'>
         <% if current_user.already_liked?(plan) %>
           <%= button_to 'いいねを取り消す', plan_like_path(plan), method: :delete %>
         <% else %>
           <%= button_to 'いいね', plan_likes_path(plan) %>
         <% end %>
+      </h3>
     </div>
-    <%= link_to '編集', edit_plan_path(plan), method: :get %>
-    <%= link_to '削除', plan_path(plan.id), method: :delete %>
+    <div class='edit'>
+      <li><%= link_to '編集', edit_plan_path(plan), id:'edit', method: :get %></li>
+      <li><%= link_to '削除', plan_path(plan.id), id:'edit', method: :delete %><li>
+    </div>
   <% end %>
-  <div class='menpage'>
-    <%= link_to '男性', men_plans_path, method: :get %>
-  </div>
-  <div class='women'>
-    <%= link_to '女性', women_plans_path, method: :get %>
-  </div>
 </div>
 
 

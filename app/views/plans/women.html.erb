@@ -1,9 +1,9 @@
-<header>
-  <div class='topheader'>
-    <%= link_to 'トップページへ', root_path %>
+<header class='userheader'>
+  <div class='my_page'>
+    <%= link_to 'トップページへ', root_path, id:'top_page' %>
   </div>
-  <div class='mypage'>
-    <%= link_to 'マイページへ', user_path(current_user.id) %>
+  <div class='nav'>
+    <li><%= link_to 'マイページへ', user_path(current_user.id), id:'top_page' %></li>
   </div>
 </header>
 

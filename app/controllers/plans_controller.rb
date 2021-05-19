@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_plan, only: [:edit, :update, :destroy]
 
   def index
@@ -71,5 +72,11 @@ class PlansController < ApplicationController
 
   def set_plan
     @plan = Plan.find(params[:id])
+  end
+
+  def ensure_correct_user
+    unless @item.user == current_user
+      redirect_to root_path
+    end
   end
 end

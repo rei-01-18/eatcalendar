@@ -32,27 +32,29 @@
     <%= f.submit '保存' %>
   <% end %>
 
-  <div class='calendar'>
-    <% @week_days.each do |day| %>
-      <div class='item'>
-        <div class='date'>
-          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+    <div class='calendar'>
+      <% @week_days.each do |day| %>
+        <div class='item'>
+          <div class='date'>
+            <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
+          </div>
+          <ul class='contents'>
+            <% if current_user.id == @plan.user_id %>
+              <ul class='meal_content'>
+                <% day[:meals].each do |meal| %>
+                  <li class='meal-list'>・<%= meal %> </li>
+                <% end %>
+              </ul>
+              <ul class='plan_content'>
+                <% day[:plans].each do |plan| %>
+                  <li class='plan-list'><%= plan %> </li>
+                <% end %>
+              </ul>
+            <% end%>
+          </ul>
         </div>
-        <ul class='contents'>
-          <ul class='meal_content'>
-            <% day[:meals].each do |meal| %>
-              <li class='meal-list'>・<%= meal %> </li>
-            <% end %>
-          </ul>
-          <ul class='plan_content'>
-            <% day[:plans].each do |plan| %>
-              <li class='plan-list'><%= plan %> </li>
-            <% end %>
-          </ul>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 </body>
 
 <footer>

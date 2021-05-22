@@ -75,8 +75,9 @@ class PlansController < ApplicationController
   end
 
   def ensure_correct_user
-    unless @item.user == current_user
+    unless @plan.user == current_user
       redirect_to root_path
     end
   end
+
 end

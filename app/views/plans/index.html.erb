@@ -26,35 +26,33 @@
     <%= f.label :日付を選択, class: 'lavel' %>
     <%= f.date_field :date, class: 'date-select' %>
     <%= f.label :メニューを入力, class: 'lavel' %>
-    <%= f.text_field :plan, class: 'text-input' , placeholder:'例 目玉焼き' %>
+    <%= f.text_field :plan, class: 'text-input' %>
     <%= f.label :時間帯を入力, class: 'lavel' %>
     <%= f.collection_select(:meal_id, Meal.all, :id, :name, {}, {class:'meal-select', id:'meal'}) %>
     <%= f.submit '保存' %>
   <% end %>
 
-    <div class='calendar'>
-      <% @week_days.each do |day| %>
-        <div class='item'>
-          <div class='date'>
-            <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
-          </div>
-          <ul class='contents'>
-            <% if current_user.id == @plan.user_id %>
-              <ul class='meal_content'>
-                <% day[:meals].each do |meal| %>
-                  <li class='meal-list'>・<%= meal %> </li>
-                <% end %>
-              </ul>
-              <ul class='plan_content'>
-                <% day[:plans].each do |plan| %>
-                  <li class='plan-list'><%= plan %> </li>
-                <% end %>
-              </ul>
-            <% end%>
-          </ul>
+  <div class='calendar'>
+    <% @week_days.each do |day| %>
+      <div class='item'>
+        <div class='date'>
+          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %>
         </div>
-      <% end %>
-    </div>
+        <ul class='contents'>
+          <ul class='meal_content'>
+            <% day[:meals].each do |meal| %>
+              <li class='meal-list'>・<%= meal %> </li>
+            <% end %>
+          </ul>
+          <ul class='plan_content'>
+            <% day[:plans].each do |plan| %>
+              <li class='plan-list'><%= plan %> </li>
+            <% end %>
+          </ul>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </body>
 
 <footer>

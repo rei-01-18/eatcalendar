@@ -33,7 +33,7 @@
 
 ・実装予定機能           テストコード
 
-・データベース設計       [![Image from Gyazo](https://i.gyazo.com/ecb84563acd50d6ea33deea90a9e328a.png)]
+・データベース設計       [![Image from Gyazo](https://i.gyazo.com/b778f67a8999d47244b22b802cc200a9.png)]
 
 ・ローカルでの動作方法    rails s
                       Railsyバージョン  6.0
